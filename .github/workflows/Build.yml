@@ -17,8 +17,6 @@ permissions:
 jobs:
   build:
     name: Build ${{ matrix.target }} for ${{ matrix.os.arch }}
-    env:
-      CCACHE_DISABLE: 1
     if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'CI-build') }}
     runs-on: ${{ matrix.os.name }}
     strategy:
